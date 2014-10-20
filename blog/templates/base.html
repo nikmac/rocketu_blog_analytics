@@ -28,14 +28,25 @@
                 </div>
 
                 <div class="col-md-2">
-                    <div>Blog tags go here!</div>
+                    <ul>
+                        {% for tag in list_tags %}
+                        <li>
+                            <a href="{% url 'tag' tag.id %}"> {{ tag.name }} ({{ tag.posts.count }})</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
 
             <hr>
 
             <div class="row">
-                <div class="col-md-12">Latest blog post goes here!</div>
+                <div class="col-md-6 well">
+                    <h3>Checkout our latest post!</h3>
+                    <h4>{{ latest_post.title }}</h4>
+                    <div>by {{ latest_post.author }} on {{ latest_post.created }}</div>
+                    <a href="{% url 'post' latest_post.pk %}">Read it!</a>
+                </div>
             </div>
 
             <hr>
