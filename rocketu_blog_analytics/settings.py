@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'localflavor',
+    'raven.contrib.django.raven_compat',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,6 +50,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'analytics.middleware.LocationMiddleware',
+    'analytics.middleware.PageViewMiddleware',
+
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -60,6 +65,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "blog.context_processors.latest_post",
     "blog.context_processors.list_tags",
+    "analytics.context_processors.location",
+    "analytics.context_processors.advertisement",
+    "analytics.context_processors.random",
 )
 
 ROOT_URLCONF = 'rocketu_blog_analytics.urls'
@@ -93,7 +101,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 try:

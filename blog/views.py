@@ -10,6 +10,8 @@ from blog.models import Post, Tag
 
 
 def blog(request):
+    # print request.location
+
     return render(request, 'blog.html', {
         'posts': Post.objects.order_by('-created')
     })
@@ -28,3 +30,10 @@ def tag(request, pk):
     return render(request, 'blog.html', {
         'posts': tag_obj.posts.all(), 'tags': tag_obj
     })
+
+
+def error(request):
+    my_variable = '!'
+    my_list = ['testing', 'a', 'list', 'out']
+    my_list = ["{}{}".format(list_item, my_variable) for list_item in my_list]
+    raise NotImplementedError("Woops! This doesn't exist.")

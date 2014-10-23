@@ -48,10 +48,28 @@
                     <a href="{% url 'post' latest_post.pk %}">Read it!</a>
                 </div>
             </div>
-
+            <div class="pull-right">Welcome user from {{ location.city }}!</div>
             <hr>
 
             <div class="footer">
+                <div>
+                    {% for advertisement in advertisements %}
+                        <h3>{{ advertisement.name }}</h3>
+                        <a href="{{ advertisement.url }}">{{ advertisement.url }}</a>
+                        {{ advertisement.image }}
+                        <img src="{{ advertisement.image }}">
+                    {% endfor %}
+                </div>
+            ___________________________________________
+                <div>
+                    {% for advertisement in random_ad %}
+
+                        <h3>{{ advertisement.name }}</h3>
+                        <a href="{{ advertisement.url }}">{{ advertisement.url }}</a>
+                        {{ advertisement.image }}
+                        <img src="{{ advertisement.image }}">
+                    {% endfor %}
+                </div>
                 <p>&copy; My Blog 2014</p>
             </div>
         </div>
