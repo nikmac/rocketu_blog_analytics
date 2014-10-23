@@ -43,8 +43,6 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'appenlight_client.django_middleware.AppenlightMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -99,8 +97,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-import appenlight_client.client as e_client
-APPENLIGHT = e_client.get_config({'appenlight.api_key':'4348a3c9e2a54668962a1ba66e93c106'})
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
